@@ -1,9 +1,9 @@
 
 class Node():
     # constructor
-    def __init__(self, value = None, next = None):
+    def __init__(self, value = None):
         self.value = value
-        self.next = next
+        self.next = None
 
     def get_value(self):
         return self.value
@@ -17,11 +17,10 @@ class Node():
     def set_next(self, next):
         self.next = next
 
-
 # A Linked List class with a single head node
 class LinkedList():
     def __init__(self):
-        self.head = Node()
+        self.head = None
         self.size = 0
 
     # print the contents of the list
@@ -29,19 +28,29 @@ class LinkedList():
         pass
 
     # push to the front of the list
-    def push_front(self, val) -> None:
+    def push_front(self, val):
         # check to see if list is empty
         if self.size == 0:
-            self.head.value = val
+            self.head = Node(val)
         else:
             n = Node(val)
             n.next = self.head
             self.head = n
         self.size += 1
-        pass
+        pass        
 
     # append to the end of the list
-    def append(self, val) -> None:
+    def append(self, val):
+        curr = self.head
+        if curr:
+            while curr.get_next() != None:
+                curr = curr.get_next()
+            curr.set_next(Node(val))
+        else:
+            self.head = Node(val)
+
+        self.size += 1
+
         pass
 
     # return the size of the list
