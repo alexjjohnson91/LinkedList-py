@@ -5,6 +5,19 @@ class Node():
         self.value = value
         self.next = next
 
+    def get_value(self):
+        return self.value
+
+    def get_next(self):
+        return self.next
+
+    def set_value(self, value):
+        self.value = value
+
+    def set_next(self, next):
+        self.next = next
+
+
 # A Linked List class with a single head node
 class LinkedList():
     def __init__(self):
