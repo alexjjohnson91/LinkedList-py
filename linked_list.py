@@ -29,35 +29,27 @@ class LinkedList():
         pass
 
     # push to the front of the list
-    def push_front(self, val) -> None:
+    def push_front(self, val):
         # check to see if list is empty
-        # if self.size == 0:
-        #     self.head = Node(val)
-        # else:
-        #     n = Node(val)
-        #     n.next = self.head
-        #     self.head = n
-        # self.size += 1
+        if self.size == 0:
+            self.head = Node(val)
+        else:
+            n = Node(val)
+            n.next = self.head
+            self.head = n
+        self.size += 1
         pass        
 
     # append to the end of the list
-    def append(self, val) -> None:
-        # create the new node with the value
-        n = Node(val)
-
-        # if the list is empty, then append n as head
-        if self.size == 0:
-            self.head = n
+    def append(self, val):
+        curr = self.head
+        if curr:
+            while curr.get_next() != None:
+                curr = curr.get_next()
+            curr.set_next(Node(val))
         else:
-            # current node is equal to the head
-            curr = self.head
-            # loop through the list to get to the last node
-            for i in range(0, self.size):
-                curr = curr.next
-            # now set the curr.next to the new node
-            curr.next = n
+            self.head = Node(val)
 
-        # increment size of list
         self.size += 1
 
         pass
