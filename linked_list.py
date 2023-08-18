@@ -1,14 +1,14 @@
 
-class Node:
+class Node():
     # constructor
     def __init__(self, value = None, next = None):
         self.value = value
         self.next = next
 
 # A Linked List class with a single head node
-class LinkedList:
+class LinkedList():
     def __init__(self):
-        self.head = None
+        self.head = Node()
         self.size = 0
 
     # print the contents of the list
@@ -17,6 +17,14 @@ class LinkedList:
 
     # push to the front of the list
     def push_front(self, val) -> None:
+        # check to see if list is empty
+        if self.size == 0:
+            self.head.value = val
+        else:
+            n = Node(val)
+            n.next = self.head
+            self.head = n
+        self.size += 1
         pass
 
     # append to the end of the list
