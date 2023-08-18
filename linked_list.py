@@ -17,7 +17,6 @@ class Node():
     def set_next(self, next):
         self.next = next
 
-
 # A Linked List class with a single head node
 class LinkedList():
     def __init__(self):
