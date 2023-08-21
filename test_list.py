@@ -30,6 +30,20 @@ class TestList(unittest.TestCase):
         a.push_front(0)
         self.assertEqual(a.length(), 6)
 
+    def test_clear(self):
+        a = linked_list.LinkedList()
+        a.append(1)
+        a.append(2)
+        a.append(3)
+        a.append(4)
+        a.append(5)
+
+        a.clear()
+        self.assertEqual(a.size, 0, "testing clear")
+        self.assertEqual(a.head.get_value(), None)
+        self.assertEqual(a.head.get_next(), None)
+        
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -59,7 +59,27 @@ class LinkedList():
 
     # empty out the list
     def clear(self) -> None:
-        pass
+        curr = Node()
+        prev = Node()
+        curr = self.head
+        prev = curr
+        while curr != None:
+            # move curr to the next node
+            curr = curr.get_next()
+            
+            # reset the prev node
+            prev.set_value(None)
+            prev.set_next(None)
+
+            # move prev to next node
+            prev = curr
+
+            # decrement size by 1
+            self.size -= 1
+
+        # reset head node
+        self.head.set_next(None)
+        self.head.set_value(None)
 
     # delete element i of the list
     def remove(self, index) -> None:
