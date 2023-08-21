@@ -54,8 +54,8 @@ class LinkedList():
         pass
 
     # return the size of the list
-    def length(self) -> None:
-        pass
+    def length(self) -> int:
+            return self.size
 
     # empty out the list
     def clear(self) -> None:

@@ -19,6 +19,17 @@ class TestList(unittest.TestCase):
         self.assertEqual(a.head.value, 5)
         self.assertEqual(a.size, 2)
 
+    def test_length(self):
+        a = linked_list.LinkedList()
+        a.append(1)
+        a.append(2)
+        a.append(3)
+        a.append(4)
+        a.append(5)
+        self.assertEqual(a.length(), 5)
+        a.push_front(0)
+        self.assertEqual(a.length(), 6)
+
 
 if __name__ == "__main__":
     unittest.main()
