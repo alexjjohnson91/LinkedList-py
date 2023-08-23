@@ -3,45 +3,54 @@ import linked_list
 
 class TestList(unittest.TestCase):
 
+    def setUp(self):
+        """ 
+            Set up the test fixtures
+        """
+        self.a = linked_list.LinkedList()
+    
+    def tearDown(self):
+        """
+            reset the self list between tests
+        """
+        self.a.clear()
+
     def test_pushfront(self):
-        a = linked_list.LinkedList()
-        a.push_front(3)
-        self.assertEqual(a.head.value, 3)
-        a.push_front(4)
-        self.assertEqual(a.head.value, 4)
+        self.a.push_front(3)
+        self.assertEqual(self.a.head.value, 3)
+        self.a.push_front(4)
+        self.assertEqual(self.a.head.value, 4)
         
 
     def test_append(self):
-        a = linked_list.LinkedList()
-        a.append(5)
-        self.assertEqual(a.head.value, 5)
-        a.append(4)
-        self.assertEqual(a.head.value, 5)
-        self.assertEqual(a.size, 2)
+        self.a.append(5)
+        self.assertEqual(self.a.head.value, 5)
+        self.a.append(4)
+        self.assertEqual(self.a.head.value, 5)
+        self.assertEqual(self.a.size, 2)
 
     def test_length(self):
-        a = linked_list.LinkedList()
-        a.append(1)
-        a.append(2)
-        a.append(3)
-        a.append(4)
-        a.append(5)
-        self.assertEqual(a.length(), 5)
-        a.push_front(0)
-        self.assertEqual(a.length(), 6)
+        self.a.append(1)
+        self.a.append(2)
+        self.a.append(3)
+        self.a.append(4)
+        self.a.append(5)
+
+        self.assertEqual(self.a.length(), 5)
+        self.a.push_front(0)
+        self.assertEqual(self.a.length(), 6)
 
     def test_clear(self):
-        a = linked_list.LinkedList()
-        a.append(1)
-        a.append(2)
-        a.append(3)
-        a.append(4)
-        a.append(5)
+        self.a.append(1)
+        self.a.append(2)
+        self.a.append(3)
+        self.a.append(4)
+        self.a.append(5)
 
-        a.clear()
-        self.assertEqual(a.size, 0, "testing clear")
-        self.assertEqual(a.head.get_value(), None)
-        self.assertEqual(a.head.get_next(), None)
+        self.a.clear()
+        self.assertEqual(self.a.size, 0, "testing clear")
+        self.assertEqual(self.a.head.get_value(), None)
+        self.assertEqual(self.a.head.get_next(), None)
         
 
 
