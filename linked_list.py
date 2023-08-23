@@ -90,11 +90,11 @@ class LinkedList():
         pass
 
     # insert element into position at index i
-    def insert(self, index) -> None:
+    def insert(self, value, index) -> None:
         pass
 
     # replace element at position i of the list
-    def replace(self, index) -> None:
+    def replace(self, value, index) -> None:
         pass
 
 

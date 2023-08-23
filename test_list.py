@@ -44,6 +44,37 @@ class TestList(unittest.TestCase):
         self.assertEqual(self.a.size, 0, "testing clear")
         self.assertEqual(self.a.head.get_value(), None)
         self.assertEqual(self.a.head.get_next(), None)
+    
+    def test_remove(self):
+        self.assertEqual(self.a.size, 5)
+        self.a.remove(2)
+        self.assertEqual(self.a.size, 4)
+        self.a.remove(3)
+        self.assertEqual(self.a.size, 3)
+
+    def test_get_element(self):
+        self.assertEqual(self.a.get_element(0), 1)
+        self.assertEqual(self.a.get_element(1), 2)
+        self.assertEqual(self.a.get_element(3), 4)
+
+    def test_insert(self):
+        self.a.insert(3, 3)
+        self.assertEqual(self.a.get_element(3), 3)
+        self.assertEqual(self.a.length(), 6)
+
+        self.a.insert(2, 2)
+        self.assertEqual(self.a.get_element(2), 2)
+        self.assertEqual(self.a.length(), 7)
+
+
+    def test_replace(self):
+        self.a.replace(3, 3)
+        self.assertEqual(self.a.get_element(3), 3)
+        self.assertEqual(self.a.length(), 5)
+
+        self.a.replace(2, 2)
+        self.assertEqual(self.a.get_element(2), 2)
+        self.assertEqual(self.a.length(), 5)
         
 
 
