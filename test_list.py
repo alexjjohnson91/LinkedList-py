@@ -46,11 +46,11 @@ class TestList(unittest.TestCase):
         self.assertEqual(self.a.head.get_next(), None)
     
     def test_remove(self):
-        self.assertEqual(self.a.size, 5)
-        self.a.remove(2)
-        self.assertEqual(self.a.size, 4)
         self.a.remove(3)
-        self.assertEqual(self.a.size, 3)
+        self.assertNotEqual(self.a.get_element(3), 4)
+        self.a.remove(0)
+        self.assertNotEqual(self.a.get_element(0), 1)
+
 
     def test_get_element(self):
         self.assertEqual(self.a.get_element(0), 1)

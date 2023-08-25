@@ -83,6 +83,27 @@ class LinkedList():
 
     # delete element i of the list
     def remove(self, index) -> None:
+        # edge case: if index = 0, remove head
+        if index == 0:
+            curr = self.head.get_next()
+            self.head.set_next(None)
+            self.head.set_value(None)
+        else: # otherwise, we have to go through the list
+            # make current node at head
+            curr = self.head
+            prev = None
+
+            # loop through the list to get to index i
+            for i in range(index):
+                prev = curr                 # set the prev node
+                curr = curr.get_next()      # move the current node along
+
+            prev.set_next(curr.get_next())
+            curr.set_next(None)
+            curr.set_value(None)
+
+        self.size -= 1
+
         pass
 
     # get element at index i
