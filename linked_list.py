@@ -86,8 +86,14 @@ class LinkedList():
         pass
 
     # get element at index i
-    def get_element(self, index) -> None:
-        pass
+    def get_element(self, index):
+        if index == 0:
+            return self.head.get_value()
+        else:
+            curr = self.head
+            for i in range(index):
+                curr = curr.get_next()
+            return curr.get_value()
 
     # insert element into position at index i
     def insert(self, value, index) -> None:
