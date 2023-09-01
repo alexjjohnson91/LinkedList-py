@@ -118,10 +118,38 @@ class LinkedList():
 
     # insert element into position at index i
     def insert(self, value, index) -> None:
-        pass
+        n = Node(value)
+
+        # edge case: index = 0
+        if index == 0:
+            n.set_next(self.head)
+            self.head = n
+        else:
+            # traverse the list to get to the spot
+            curr = self.head
+            prev = None
+            for i in range(index):
+                prev = curr
+                curr = curr.get_next()
+            
+            prev.set_next(n) # insert n into the list
+            n.set_next(curr)
+
+        self.size += 1
 
     # replace element at position i of the list
     def replace(self, value, index) -> None:
+        # edge case: index = 0
+        if index == 0:
+            self.head.set_value(value)
+        else:
+            # traverse the list to get to the spot
+            curr = self.head
+            for i in range(index):
+                curr = curr.get_next()
+            
+            curr.set_value(value)
+
         pass
 
 

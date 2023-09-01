@@ -66,6 +66,10 @@ class TestList(unittest.TestCase):
         self.assertEqual(self.a.get_element(2), 2)
         self.assertEqual(self.a.length(), 7)
 
+        self.a.insert(-1, 0)
+        self.assertEqual(self.a.head.get_value(), -1)
+        self.assertEqual(self.a.length(), 8)
+
 
     def test_replace(self):
         self.a.replace(3, 3)
@@ -74,6 +78,10 @@ class TestList(unittest.TestCase):
 
         self.a.replace(2, 2)
         self.assertEqual(self.a.get_element(2), 2)
+        self.assertEqual(self.a.length(), 5)
+
+        self.a.replace(-1, 0)
+        self.assertEqual(self.a.head.get_value(), -1)
         self.assertEqual(self.a.length(), 5)
         
 
